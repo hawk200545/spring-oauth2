@@ -14,11 +14,11 @@ public class SecurityConfig {
     public SecurityFilterChain securityFilterChain(HttpSecurity httpSecurity) throws Exception{
         httpSecurity.
                 csrf(AbstractHttpConfigurer::disable)
-                .authorizeHttpRequests(req-> {
+                .authorizeHttpRequests(req -> {
                     req.anyRequest().authenticated();
                 })
-                .oauth2Login(oauth->
-                        oauth.defaultSuccessUrl("/demo",true)
+                .oauth2Login(oauth -> 
+                        oauth.defaultSuccessUrl("/api/v1/demo",true)
                                 .permitAll()
                 );
 
